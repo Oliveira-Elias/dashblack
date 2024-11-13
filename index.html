@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="1500"> <!-- 1500 segundos = 25 minutos -->
-    <title>Dashboard Power BI</title>
-    <style>
-        /* Estilize a página para que o dashboard ocupe toda a tela */
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
-</head>
-<body>
-    <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNDBmNzVlNTEtN2M4MS00MDU2LTkwYzctN2IxMzY0ZjhmZjVmIiwidCI6IjkwYzc3MTJkLWQxNWEtNGQ4Ni1iMjlmLTA4YThlMGY5NjQ5ZSJ9" allowfullscreen></iframe>
-</body>
+<html>
+    <body>
+        <iframe class="mySlides" id="powerBIFrame" 
+                src="https://app.powerbi.com/view?r=eyJrIjoiNDBmNzVlNTEtN2M4MS00MDU2LTkwYzctN2IxMzY0ZjhmZjVmIiwidCI6IjkwYzc3MTJkLWQxNWEtNGQ4Ni1iMjlmLTA4YThlMGY5NjQ5ZSJ9&pageName=53efefd6039d20a11e7a" 
+                frameborder="0" allowFullScreen="true" 
+                style="width: 100%; height: 90vh;"></iframe>
+
+        <script>
+            var slideIndex = 0;
+            var pages = [
+                "53efefd6039d20a11e7a",
+                "73a8ee4bd6c2d6217009",
+                "f1f4b49a8000045e62bb",
+                "a973f47805dccd21082c",
+				"748ae2c011dae952ac70",
+				"c2654e470cdb8c8c4917",
+				"2330bc0087deb0816156",
+				"a5d7ee292fb6c79aa416",
+				"45a08440993581b708a2",
+				"9f8740d39d51714901b1"
+            ];
+
+            function showSlides() {    
+                var frame = document.getElementById("powerBIFrame");
+
+                if (slideIndex >= pages.length) {
+                    slideIndex = 0;
+                }
+
+                // Define o link da página atual
+                frame.src = "https://app.powerbi.com/view?r=eyJrIjoiNDBmNzVlNTEtN2M4MS00MDU2LTkwYzctN2IxMzY0ZjhmZjVmIiwidCI6IjkwYzc3MTJkLWQxNWEtNGQ4Ni1iMjlmLTA4YThlMGY5NjQ5ZSJ9&pageName=" + pages[slideIndex];
+
+                slideIndex++; 
+                setTimeout(showSlides, 30000); // Alterna a cada 30 segundos
+            }
+
+            showSlides(); // Inicia o ciclo de slides
+        </script>
+    </body>
 </html>
